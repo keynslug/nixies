@@ -7,6 +7,7 @@
   networking = {
     enableIPv6 = true;
     firewall.allowPing = true;
+    dhcpcd.wait = "ipv4";
     scaleway = { configureIPv6 = true; interface = "ens2"; };
   };
 

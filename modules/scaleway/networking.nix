@@ -1,8 +1,16 @@
 {config, pkgs, lib, ...}:
- 
+
+with lib;
+
 let
+
   cfg = config.networking.scaleway;
   scwMetadataServer = "http://169.254.42.42/conf?format=json";
+
+  useDHCP =
+    config.networking.useDHCP ||
+    any (i: i.useDHCP == true) (attrValues config.networking.interfaces);
+
 in
 
 with lib;
@@ -37,15 +45,10 @@ with lib;
 
       description = "Setup IPv6 address and routing on ${cfg.interface} the Scaleway way";
 
-      after = [
-        "network-setup.service"
-      ];
-      wants = [
-        "network-setup.service"
-        "network-addresses-${cfg.interface}.service"
-      ];
-      # conflicts = [ "shutdown.target" ];
-      wantedBy = [ "network.target" ]; 
+      after = optional useDHCP "dhcpcd.service";
+      before = [ "network-online.target" ];
+      wants = [ "network.target" ];
+      wantedBy = [ "network-online.target" ];
 
       unitConfig.ConditionCapability = "CAP_NET_ADMIN";
 
@@ -57,6 +60,7 @@ with lib;
       stopIfChanged = false;
 
       path = [ pkgs.iproute pkgs.jq pkgs.curl ];
+
       script = ''
         scwMetadata=$(curl --fail --silent --show-error '${scwMetadataServer}')
         status=$?
@@ -126,4 +130,3 @@ with lib;
   };
 
 }
-
