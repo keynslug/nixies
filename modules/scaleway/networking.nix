@@ -13,7 +13,6 @@ let
 
 in
 
-with lib;
 {
 
   options = {
