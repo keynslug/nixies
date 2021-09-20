@@ -40,6 +40,8 @@ in
 
   config = mkIf cfg.configureIPv6 {
 
+    networking.scaleway.interface = mkDefault networking.defaultGateway;
+
     systemd.services."network-${cfg.interface}-scw-ipv6-setup" = {
 
       description = "Setup IPv6 address and routing on ${cfg.interface} the Scaleway way";

@@ -6,9 +6,10 @@
 
   networking = {
     enableIPv6 = true;
-    firewall.allowPing = true;
+    defaultGateway = { interface = "ens2"; address = ""; };
     dhcpcd.wait = "ipv4";
-    scaleway = { configureIPv6 = true; interface = "ens2"; };
+    firewall.allowPing = true;
+    scaleway.configureIPv6 = true;
   };
 
   services.openssh.enable = true;
