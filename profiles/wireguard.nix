@@ -66,6 +66,21 @@ in
           publicKey = "FLsbUZ9qvHbfgVOXkJ/CwooTYRvfOYDlx9GNO+iSSAA=";
         }
 
+        { # butterfly-bird@yoga
+          allowedIPs = [ "10.42.42.11/32" "fc42::11/128" ];
+          publicKey = "Ic4ZbDno41AUQ9fOTgl54VZ6vO5QwYsWka4aFZ1hDXw=";
+        }
+
+        { # keynslug@op5
+          allowedIPs = [ "10.42.42.12/32" "fc42::12/128" ];
+          publicKey = "jOQs8FjQopCg92u9e/6SqoVeV9tSXQKY3Wvjzpt1Z18=";
+        }
+
+        { # keynslug@bootkiller
+          allowedIPs = [ "10.42.42.13/32" "fc42::13/128" ];
+          publicKey = "rGjcK3BcbzvxKCwq4ssztyWq3SpAteEmt8sxnV5oMyo=";
+        }
+
       ];
 
     };
