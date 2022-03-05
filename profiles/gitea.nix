@@ -4,7 +4,6 @@ with lib;
 
 let
     giteaDomain = "git.keynfawk.es";
-    # giteaPort = 3000;
     defaultGateway = config.networking.defaultGateway.interface;
 in
 {
@@ -54,9 +53,4 @@ in
             allowedTCPPorts = [ 80 443 ];
         })
     ];
-    #// optionalAttrs config.networking.wireguard.enable {
-    #    wg0 = {
-    #        allowedTCPPorts = [ giteaPort ];
-    #    };
-    #};
 }
