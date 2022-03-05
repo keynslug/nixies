@@ -81,6 +81,11 @@ in
           publicKey = "rGjcK3BcbzvxKCwq4ssztyWq3SpAteEmt8sxnV5oMyo=";
         }
 
+        { # butterfly-bird@op6
+          allowedIPs = [ "10.42.42.14/32" "fc42::14/128" ];
+          publicKey = "oVneUy8hpzyw56cKHdhv26RvSB6Le7LcIrgc2nwy0CU=";
+        }
+
       ];
 
     };
