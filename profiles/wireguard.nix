@@ -85,6 +85,11 @@ in
           allowedIPs = [ "10.42.42.14/32" "fc42::14/128" ];
           publicKey = "oVneUy8hpzyw56cKHdhv26RvSB6Le7LcIrgc2nwy0CU=";
         }
+        
+        { # indeez@iphone
+          allowedIPs = [ "10.42.42.15/32" "fc42::15/128" ];
+          publicKey = "i/SgqTUc1qs/LtAcCMxfPXVpe8A/fffJQJ6hAz1VFRE=";
+        }
 
       ];
 
